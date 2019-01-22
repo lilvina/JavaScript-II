@@ -1,9 +1,7 @@
 // Create a callback function and invoke the function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
-function callback(value) {
-  console.log(value)
-}
+
 /*
 
   //Given this problem:
@@ -28,39 +26,55 @@ function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
   return cb(arr.length)
 }
-getLength(items,callback)
+getLength(items,(arr1) => {
+  console.log(arr1)
+})
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
   return cb(arr[3])
 }
-last(items, callback)
+last(items, (lastItem) => {
+  console.log(lastItem);
+})
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return cb(x + y)
+  return cb(x, y)
 }
-sumNums(2, 5, callback)
+console.log(sumNums(10, 10, (x, y) => {
+  return x + y
+}));
 
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-  return cb(x * y)
+  return cb(x, y)
 }
-multiplyNums(5, 5, callback)
+console.log(multiplyNums(5, 5, (x, y) => {
+  return x * y
+}));
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  list.find((element) => {
-    if(element === item) {
-      return cb(true)
-    } else {
-      return cb(false)
-    }
-  })
+  // list.find((element) => {
+  //   if(element === item) {
+  //     return cb(true)
+  //   } else {
+  //     return cb(false)
+  //   }
+  // })
+  return cb(list, item)
 }
-contains("Davina", items, callback)
+const listArr = ( list, item ) => {
+  if(list.indexOf(item) > -1) {
+    return true
+  } else {
+    return false
+  }
+}
+console.log(contains("Pencil", items, listArr))
 
 /* STRETCH PROBLEM */
 
