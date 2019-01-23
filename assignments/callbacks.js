@@ -58,21 +58,17 @@ console.log(multiplyNums(5, 5, (x, y) => {
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  // list.find((element) => {
-  //   if(element === item) {
-  //     return cb(true)
-  //   } else {
-  //     return cb(false)
-  //   }
-  // })
   return cb(list, item)
 }
 const listArr = ( list, item ) => {
-  if(list.indexOf(item) > -1) {
-    return true
-  } else {
-    return false
-  }
+  list.find((element) => {
+    if(element === item) {
+      return true
+    } else {
+      return false
+    }
+  })
+  return item
 }
 console.log(contains("Pencil", items, listArr))
 

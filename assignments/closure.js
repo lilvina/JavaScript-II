@@ -1,13 +1,14 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
-function closure() {
-  let scopeInner = 0
-  function inner() {
-    return scopeInner
+const myName = (firstName, lastName) => {
+  let intro = "My name is " //inner function has access to the outer function
+  let fullName = () => {
+    return intro + firstName + " " + lastName;
   }
-  inner()
+  return fullName()
 }
-closure()
+myName("Davina", "Taylor")
+
 
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
