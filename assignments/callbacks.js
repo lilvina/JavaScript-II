@@ -61,17 +61,14 @@ function contains(item, list, cb) {
   return cb(list, item)
 }
 const listArr = ( list, item ) => {
-  list.find((element) => {
-    if(element === item) {
-      return true
-    } else {
-      return false
-    }
-  })
-  return item
+  if(list.indexOf(item) > -1) {
+    return true
+  } else {
+    return false
+  }
 }
 console.log(contains("Pencil", items, listArr))
-
+console.log(contains("Bob", items, listArr))
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
